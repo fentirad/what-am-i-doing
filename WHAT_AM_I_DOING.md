@@ -11,10 +11,12 @@ Each participant builds simple to do list application in React to finish course
   - Can use local storage
 
 ### Bonus:
-  - Create tabs to filter by completed, active items 
+  - Create tabs to filter by completed, active items
   - Reorder tasks by priority
-  - Add due dates 
-  - Add tags 
+  - Add due dates
+  - Add tags
+  - firebase database
+  - animation
 
 ## Note
   - To do application will be iterated on in future assignments 
