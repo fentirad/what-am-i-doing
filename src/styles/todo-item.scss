@@ -1,0 +1,9 @@
+@import './vars';
+
+.todo-item {
+    display: flex;
+    flex-direction: column;
+    font-size: $primaryFontSize;
+    margin-bottom: 3px;
+    margin-top: 3px;    
+}

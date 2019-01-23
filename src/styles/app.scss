@@ -1,32 +1,28 @@
-@import '_vars';
+@import './vars';
 
 .app {
+  align-items: center;
   background-color: $primaryBackgroundColor;
+  color: $primaryColor;
   height: 100vh;
+  justify-content: center;
   text-align: center;
 }
 
 .app-header {
-  align-items: center;
-  background-color: $primaryBackgroundColor;
-  color: $primaryColor;
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
+  font-size: $primaryFontSize;
   max-height: 10vh;
   padding: 10px;
 }
 
 .app-footer {
-  align-items: center;
-  background-color: $primaryBackgroundColor;
   bottom: 0;
-  color: $primaryColor;
+  border: 1px solid green;
   display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
+  font-size: $primaryFontSize;
   position: absolute;
-  width: 100%;
+  width: 99%;
 }

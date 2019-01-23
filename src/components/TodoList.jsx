@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+import TodoItem from './TodoItem';
 
 class TodoList extends Component {
   render() {
+    const items = {
+      item1: 'item 1',
+      item2: 'item 2',
+      item3: 'item 3'
+    };
+
     return (
     <ul className="todo-list">
-        <li>item 1</li>
-        <li>item 2</li>
+        {Object.keys(items).map((itemKey) => (
+          <TodoItem key={itemKey} text={items[itemKey]} />
+        ))}
     </ul>
     );
   }
