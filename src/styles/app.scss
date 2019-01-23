@@ -1,0 +1,32 @@
+@import '_vars';
+
+.app {
+  background-color: $primaryBackgroundColor;
+  height: 100vh;
+  text-align: center;
+}
+
+.app-header {
+  align-items: center;
+  background-color: $primaryBackgroundColor;
+  color: $primaryColor;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  justify-content: center;
+  max-height: 10vh;
+  padding: 10px;
+}
+
+.app-footer {
+  align-items: center;
+  background-color: $primaryBackgroundColor;
+  bottom: 0;
+  color: $primaryColor;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
