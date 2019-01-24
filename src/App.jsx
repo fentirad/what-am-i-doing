@@ -12,7 +12,7 @@ class App extends Component {
 
   createTodo = (todo) => {
     const todos = { ...this.state.todos };
-    todos[`todo${Date.now()}`] = todo;
+    todos[`todo-${Date.now()}`] = todo;
     this.setState({ todos });
   };
 
@@ -38,7 +38,8 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <AddTodoForm  />
+        <AddTodoForm
+          createTodo={this.createTodo} />
         <TodoList
           todos={this.state.todos}
           updateTodo={this.updateTodo}

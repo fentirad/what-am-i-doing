@@ -2,8 +2,31 @@
 
 .todo-item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-size: $primaryFontSize;
     margin-bottom: 3px;
-    margin-top: 3px;    
+    margin-top: 3px;
+    padding: 3px;
+    position: relative;
+
+    border: 1px solid yellow;
+
+    &-complete {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &-text {
+        display: inline-block;
+        margin-left: 6px;
+        margin-right: 6px;
+        flex-grow: 1;
+    }
+
+    &-delete {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }

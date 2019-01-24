@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Button from './Button';
 import '../styles/add-todo.scss';
 
 class AddTodoForm extends Component {
@@ -9,11 +10,15 @@ class AddTodoForm extends Component {
 
   handleKeyUp = (e) => {
     if (e.key !== 'Enter') {
-      console.log(e);
       return;
     }
 
-    //this.props.createTodo();
+    const todoValue = {
+      complete: false,
+      value: e.currentTarget.value
+    };
+
+    this.props.createTodo(todoValue);
   }
 
   render() {
@@ -24,6 +29,10 @@ class AddTodoForm extends Component {
         className="add-todo-input"
         onKeyUp={this.handleKeyUp}
       />
+      <Button
+        classes="todo-item-create"
+        action={() => console.log(`add todo btn`)}
+        text="+" />
     </div>
     );
   }

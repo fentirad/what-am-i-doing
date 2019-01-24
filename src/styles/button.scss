@@ -1,0 +1,9 @@
+@import './vars';
+
+.app-button {
+  background-color: $primaryColor;
+  border-radius: 14px;
+  font-size: $primaryFontSize;
+  height: 30px;
+  width: 30px;
+}
