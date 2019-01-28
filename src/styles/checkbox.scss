@@ -1,12 +1,17 @@
 @import './vars';
 
+$checkboxSize: 28px;
+
 .app-checkbox {
+
   &-container {
     display: block;
     position: relative;
     cursor: pointer;
     font-size: $primaryFontSize;
     user-select: none;
+    height: $checkboxSize;
+    width: $checkboxSize;
     
     input {
       position: absolute;
@@ -31,8 +36,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 28px;
-    width: 28px;
+    height: $checkboxSize;
+    width: $checkboxSize;
     background-color: #eee;
 
     &:after {

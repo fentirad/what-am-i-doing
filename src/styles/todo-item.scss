@@ -12,6 +12,7 @@
     border: 1px solid yellow;
 
     &-complete {
+        min-width: 30px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -22,6 +23,16 @@
         margin-left: 6px;
         margin-right: 6px;
         flex-grow: 1;
+
+        &-input {
+            width: 100%;
+            text-align: center;
+            border: none;
+        }
+        
+        &.completed &-input {
+            text-decoration: line-through;
+        }
     }
 
     &-delete {

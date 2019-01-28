@@ -7,31 +7,40 @@ class AddTodoForm extends Component {
   static propTypes = {
     createTodo: PropTypes.func
   }
+  
+  addTodoRef = React.createRef();
+  
+  initializeTodoAndClearInput = () => {
+    const todoValue = {
+      complete: false,
+      value: this.addTodoRef.current.value
+    };
+
+    this.props.createTodo(todoValue);
+
+    this.addTodoRef.current.value = '';
+  }
 
   handleKeyUp = (e) => {
     if (e.key !== 'Enter') {
       return;
     }
 
-    const todoValue = {
-      complete: false,
-      value: e.currentTarget.value
-    };
-
-    this.props.createTodo(todoValue);
+    this.initializeTodoAndClearInput();
   }
 
   render() {
     return (
     <div className="add-todo">
       <input
+        ref={this.addTodoRef}
         type="text"
         className="add-todo-input"
         onKeyUp={this.handleKeyUp}
       />
       <Button
         classes="todo-item-create"
-        action={() => console.log(`add todo btn`)}
+        action={(e) => this.initializeTodoAndClearInput()}
         text="+" />
     </div>
     );
