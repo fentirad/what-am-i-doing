@@ -49,18 +49,18 @@ class Footer extends Component {
     } = this.props;
     return (
     <div className="app-footer">
+      <div className="app-footer-complete">
         <Checkbox
-            onChangeHandler={this.handleCompletedOnChange}
-            classes="app-footer-complete"
-            name="completed-all"
-            checked={allTodosCompleted}
-            label="" />
-        {this.renderStatus()}
-        <Button
-            classes="app-footer-delete"
-            action={deleteAll}
-            text="x" />
-        
+          onChangeHandler={this.handleCompletedOnChange}
+          name="completed-all"
+          checked={allTodosCompleted}
+          label="" />
+      </div>
+      {this.renderStatus()}
+      <Button
+        classes="app-footer-delete"
+        action={deleteAll}
+        text="x" />
     </div>
     );
   }

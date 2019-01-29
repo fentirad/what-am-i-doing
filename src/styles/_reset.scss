@@ -6,6 +6,8 @@ input {
   border: none;
   border-bottom: 2px solid white;
   color: $primaryColor;
+  font-size: $primaryFontSize;
+  font-family: $primaryFontFamily;
 
   &:focus {
     outline: none;

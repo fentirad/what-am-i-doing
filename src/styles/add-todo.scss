@@ -4,9 +4,20 @@
     margin-bottom: 12px;
     margin-top: 12px;
     max-height: 10vh;
-}
+    display: flex;
+    flex-direction: row;
 
-.add-todo-input {
-    font-size: $primaryFontSize;
-    text-align: center;
+    &-input {
+        font-size: $primaryFontSize;
+        text-align: center;
+        flex-grow: 1;
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+
+    &-button {
+        margin-left: 7px;
+        margin-right: 7px;
+        flex-shrink: 0;
+    }
 }

@@ -39,7 +39,7 @@ class AddTodoForm extends Component {
         onKeyUp={this.handleKeyUp}
       />
       <Button
-        classes="todo-item-create"
+        classes="add-todo-button"
         action={(e) => this.initializeTodoAndClearInput()}
         text="+" />
     </div>

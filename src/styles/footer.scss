@@ -2,11 +2,10 @@
 
 .app-footer {
   bottom: 0;
-  border: 1px solid green;
   display: flex;
   flex-direction: row;
   font-size: $primaryFontSize;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
   margin-top: 3px;
   max-height: 10vh;
   padding: 3px;
@@ -14,16 +13,23 @@
   width: 99%;
 
   &-complete {
-      min-width: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    min-width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   &-status {
-      display: inline-block;
-      margin-left: 6px;
-      margin-right: 6px;
-      flex-grow: 1;
+    display: inline-block;
+    margin-left: 6px;
+    margin-right: 6px;
+    flex-grow: 1;
+  }
+
+  &-delete {
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
