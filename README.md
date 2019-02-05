@@ -7,6 +7,10 @@ time to get coding
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+mobx + decorators: https://www.robinwieruch.de/create-react-app-mobx-decorators/
+workaround for error: "The decorators plugin requires a 'decoratorsBeforeExport' option, whose value must be a boolean."
+https://stackoverflow.com/questions/53230930/react-mobx-error-the-decorators-plugin-requires-a-decoratorsbeforeexport-op
+vsc enable experimentaldecorators: https://github.com/Microsoft/vscode/issues/45071
 
 ## Available Scripts
 

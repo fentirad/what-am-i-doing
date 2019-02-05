@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { observer } from 'mobx-react';
 import Button from './Button';
 import '../styles/add-todo.scss';
 
-class AddTodoForm extends Component {
-  static propTypes = {
-    createTodo: PropTypes.func
-  }
-  
+@observer
+class AddTodoForm extends Component {  
   addTodoRef = React.createRef();
   
   initializeTodoAndClearInput = () => {
@@ -16,7 +13,7 @@ class AddTodoForm extends Component {
       value: this.addTodoRef.current.value
     };
 
-    this.props.createTodo(todoValue);
+    this.props.todoStore.createTodo(todoValue);
 
     this.addTodoRef.current.value = '';
   }

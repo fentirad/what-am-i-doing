@@ -1,33 +1,30 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 import Button from './Button';
 import Checkbox from './Checkbox';
 import '../styles/footer.scss';
 
+@observer
 class Footer extends Component {
   handleCompletedOnChange = () => {
     const {
-      allTodosCompleted
-    } = this.props;
+      allTodosComplete
+    } = this.props.todoStore;
     
-    if (allTodosCompleted) {
-      this.props.uncompleteAll();
+    if (allTodosComplete) {
+      this.props.todoStore.uncompleteAllTodos();
     } else {
-      this.props.completeAll();
+      this.props.todoStore.completeAllTodos();
     }
   };
 
   renderStatus() {
     const {
-      todos
-    } = this.props;
-    const todoKeys = Object.keys(todos);
-    const totalTodos = todoKeys.length;
+      todoCount,
+      completedTodoCount
+    } = this.props.todoStore;
 
-    const totalComplete = todoKeys.reduce((prevTotal, key) => {
-      const todo = todos[key];
-      return (todo.complete ? prevTotal + 1: prevTotal);
-    }, 0);
-    if (totalTodos === 0) {
+    if (todoCount === 0) {
       return (
       <div className="app-footer-status">
         WRITE SOMETHING TO DO!
@@ -35,31 +32,38 @@ class Footer extends Component {
       )
     }
 
+    if (todoCount === completedTodoCount) {
+      return (
+      <div className="app-footer-status">
+        ALL DONE!
+      </div>
+      )
+    }
+
     return (
       <div className="app-footer-status">
-      {totalComplete} / {totalTodos} todos complete
+      {completedTodoCount} / {todoCount} todos complete
       </div>
     );
   }
 
   render() {
     const {
-      allTodosCompleted,
-      deleteAll
-    } = this.props;
+      allTodosComplete
+    } = this.props.todoStore;
     return (
     <div className="app-footer">
       <div className="app-footer-complete">
         <Checkbox
           onChangeHandler={this.handleCompletedOnChange}
           name="completed-all"
-          checked={allTodosCompleted}
+          checked={allTodosComplete}
           label="" />
       </div>
       {this.renderStatus()}
       <Button
         classes="app-footer-delete"
-        action={deleteAll}
+        action={this.props.todoStore.deleteAllTodos}
         text="x" />
     </div>
     );
