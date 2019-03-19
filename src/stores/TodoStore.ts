@@ -4,12 +4,17 @@ import {
   autorun
 } from 'mobx';
 
+export interface Todo {
+  complete: boolean
+  value: string
+}
+
 class TodoStore {
-  static storeId = 'what-am-i-doing'
-  @observable todos = {};
+  static storeId: string = 'what-am-i-doing';
+  @observable todos: {[key: string]: Todo} = {};
 
   constructor() {
-    const localStorageRef = localStorage.getItem(TodoStore.storeId);
+    const localStorageRef: string = localStorage.getItem(TodoStore.storeId);
     if (localStorageRef) {
       this.todos = JSON.parse(localStorageRef);
     }
@@ -23,67 +28,69 @@ class TodoStore {
     });
   }
 
-  @computed get todoCount() {
-    const todoKeys = Object.keys(this.todos);
+  @computed get todoCount(): number {
+    const todoKeys: string[] = Object.keys(this.todos);
     return todoKeys.length;
   }
 
-  @computed get completedTodoCount() {
-    const todoKeys = Object.keys(this.todos);
+  @computed get completedTodoCount(): number {
+    const todoKeys: string[] = Object.keys(this.todos);
     return todoKeys.filter(key => {
       const todo = this.todos[key];
       return todo.complete === true;
     }).length;
   }
 
-  @computed get allTodosComplete() {
-    const todoKeys = Object.keys(this.todos);
+  @computed get allTodosComplete(): boolean {
+    const todoKeys: string[] = Object.keys(this.todos);
     if (todoKeys.length === 0) {
       return false;
     }
 
-    return todoKeys.reduce((prev, key) => {
+    const allTodosComplete: boolean = todoKeys.reduce((prev, key) => {
       const todo = this.todos[key];
       return prev && todo.complete;
     }, true);
+
+    return allTodosComplete;
   }
 
-  createTodo = todo => {
-    const newTodoKey = `todo-${Date.now()}`;
+  createTodo = (todo: Todo): void => {
+    const newTodoKey: string = `todo-${Date.now()}`;
     this.todos[newTodoKey] = todo;
   };
 
-  updateTodo = (key, updatedTodo) => {
+  updateTodo = (key: string, updatedTodo: Todo): void => {
     this.todos[key] = updatedTodo;
   };
 
-  deleteTodo = key => {
+  deleteTodo = (key: string): void => {
     delete this.todos[key];
   };
 
-  completeAllTodos = () => {
-    Object.keys(this.todos).forEach(key => {
-      const todo = {
+  completeAllTodos = (): void => {
+    Object.keys(this.todos).forEach((key: string): void => {
+      const todo: Todo = {
         ...this.todos[key],
         complete: true
-      }
+      };
 
       this.todos[key] = todo;
     });
   };
 
-  uncompleteAllTodos = () => {
-    Object.keys(this.todos).forEach(key => {
-      const todo = {
+  uncompleteAllTodos = (): void => {
+    Object.keys(this.todos).forEach((key: string): void => {
+      const todo: Todo = {
         ...this.todos[key],
         complete: false
-      }
+      };
       
       this.todos[key] = todo;
     });
   };
 
-  deleteAllTodos = () => {
+  deleteAllTodos = (): void => {
     this.todos = {};
   };
 }
