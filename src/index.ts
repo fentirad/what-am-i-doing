@@ -1,13 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import './index.scss';
-import App from './App';
+import { App, AppProps } from './App';
 import TodoStore from './stores/TodoStore'
 import * as serviceWorker from './serviceWorker';
 
-const todoStore = new TodoStore();
+const props: AppProps = {
+  todoStore: new TodoStore()
+};
 
-ReactDOM.render(<App todoStore={todoStore} />, document.getElementById('root'));
+
+ReactDOM.render(React.createElement(App, props), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
